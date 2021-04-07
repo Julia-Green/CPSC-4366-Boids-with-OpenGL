@@ -5,15 +5,21 @@
 class Boid {
 	public:
 
-		//Construct the boid
-		Boid() {};
 
-		std::vector<float> velocity{0, 0};
-		std::vector<glVertex2f> vertPositions{
-			glVertex2f(0.0, 0.0), //First Vertex 
-			glVertex2f(0.0, 0.0), //Second Vertex
-			glVertex2f(0.0, 0.0) //Third Vertex
+		//Construct the boid
+		Boid();
+
+		Vector2D velocity{0, 0};
+
+		Vector2D firstVertex{0, 0};
+		Vector2D secondVertex{0, 0};
+		Vector2D thirdVertex{0, 0};
+
+		std::vector<Vector2D> vertPositions{
+			firstVertex,
+			secondVertex,
+			thirdVertex 
 		};
 };
 
-};
+
