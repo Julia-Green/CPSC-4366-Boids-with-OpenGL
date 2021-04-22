@@ -1,3 +1,4 @@
+#include <iostream>
 #include <math.h> 
 #include <random>
 #include <vector>
@@ -29,7 +30,7 @@ Boid::Boid() {
 
 	vertPositions.at(2).x = radius;
 	vertPositions.at(2).y = radius * 2;
-
+	std::cout << theta << std::endl;
 
 	vertPositions.at(0).x = (vertPositions.at(0).x * cos(theta)) - (vertPositions.at(0).y * sin(theta));
 	vertPositions.at(0).y = (vertPositions.at(0).y * cos(theta)) - (vertPositions.at(0).x * sin(theta));
