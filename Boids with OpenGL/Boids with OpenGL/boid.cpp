@@ -31,7 +31,6 @@ Boid::Boid() {
 	vertPositions.at(2).y = radius * 2;
 
 
-
 	vertPositions.at(0).x = (vertPositions.at(0).x * cos(theta)) - (vertPositions.at(0).y * sin(theta));
 	vertPositions.at(0).y = (vertPositions.at(0).y * cos(theta)) - (vertPositions.at(0).x * sin(theta));
 
@@ -40,22 +39,6 @@ Boid::Boid() {
 
 	vertPositions.at(2).x = (vertPositions.at(2).x * cos(theta)) - (vertPositions.at(2).y * sin(theta));
 	vertPositions.at(2).y = (vertPositions.at(2).y * cos(theta)) - (vertPositions.at(2).x * sin(theta));
-
-	//if (velocity.at(0) >= 0 && velocity.at(1) >= 0) { // Both x and y velocities are positive or both 0
-	//	vertPositions.at(1).x = x * cos (30) - y * sin (30)
-	//	vertPositions.at(2) = glVertex2f((y - 8) / -2, (-2 * x) + 8);
-	//} else if(velocity.at(0) >= 0 && velocity.at(1) < 0 || velocity.at(0) > 0 && velocity.at(1) <= 0) { // X velocity is positive/0 and y velocity is negative or X velocity is positive and y velocity is negative/0
-	//	vertPositions.at(1) = glVertex2f(x - 10.0, y - 5);
-	//	vertPositions.at(2) = glVertex2f(x - 10.0, y + 5);
-	//} else if (velocity.at(0) <= 0 && velocity.at(1) > 0 || velocity.at(0) < 0 && velocity.at(1) >= 0) { // X velocity is negative/0 and y velocity is positive or X velocity is negative and y velocity is positive/0
-	//	vertPositions.at(1) = glVertex2f(x - 10.0, y - 5);
-	//	vertPositions.at(2) = glVertex2f(x - 10.0, y + 5);
-	//} else { // Both x and y velocities are negative
-	//	vertPositions.at(1) = glVertex2f(x - 10.0, y - 5);
-	//	vertPositions.at(2) = glVertex2f(x - 10.0, y + 5);
-	//}
-
-
 }
 
 float Boid::radians(float degrees) {
@@ -66,7 +49,7 @@ float Boid::heading(float x, float y) {
 	return atan2(static_cast<float>(velocity.x), static_cast<float>(-velocity.y)) * 180.0 / 3.14159265359;
 }
 
-void Boid::updateBoidPosition() {
+void Boid::updateBoidPositions() {
 	vertPositions.at(0).x -= velocity.x;
 	vertPositions.at(0).y -= velocity.y;
 
@@ -75,6 +58,5 @@ void Boid::updateBoidPosition() {
 
 	vertPositions.at(2).x -= velocity.x;
 	vertPositions.at(2).y -= velocity.y;
-
-
 }
+

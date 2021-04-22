@@ -8,7 +8,6 @@ const int screenHeight{ 500 };
 static std::random_device seed;
 static std::default_random_engine randEngine;
 
-
 //structs
 struct Vector2D
 {

@@ -5,12 +5,12 @@
 class Boid {
 	public:
 
-
 		//Construct the boid
 		Boid();
-		void updateBoidPosition();
+		void updateBoidPositions();
 		float radians(float degrees);
 		float heading(float x, float y);
+
 
 		float radius = 5.0;
 		float theta = 0.0;
@@ -20,6 +20,7 @@ class Boid {
 		Vector2D secondVertex{0, 0};
 		Vector2D thirdVertex{0, 0};
 
+		std::vector<Boid> Boids;
 		std::vector<Vector2D> vertPositions{
 			firstVertex,
 			secondVertex,
