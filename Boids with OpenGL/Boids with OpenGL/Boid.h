@@ -4,13 +4,12 @@
 
 class Boid {
 	public:
-
 		//Construct the boid
 		Boid();
-		void updateBoidPositions();
+		 
 		float radians(float degrees);
 		float heading(float x, float y);
-
+		void updateBoidPositions();
 
 		float radius = 5.0;
 		float theta = 0.0;

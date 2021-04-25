@@ -8,9 +8,8 @@
 
 Flock::Flock() {
 	
-	std::uniform_int_distribution<int> randomNum(0, 30);
+	std::uniform_int_distribution<int> randomNum(1, 30);
 	int numBoids = randomNum(randEngine);
-	std::cout << numBoids;
 	for (int i = 0; i < numBoids; i++) {
 		Boid temp;
 		Boids.push_back(temp);
