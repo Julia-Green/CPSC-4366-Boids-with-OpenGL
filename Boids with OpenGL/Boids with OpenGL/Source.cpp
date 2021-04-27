@@ -1,5 +1,4 @@
 #include <iostream>
-
 #include <GL/glew.h>
 #include <GL/freeglut.h> 
 #include <vector>
@@ -7,7 +6,6 @@
 #include "Constants.h"
 #include "Flock.h"
 
-//https://www.wikihow.com/Set-Up-an-OpenGL-FreeGLUT-GLEW-Template-Project-in-Visual-Studio
 // Empty Flock
 Flock newFlock;
 
@@ -17,23 +15,12 @@ void init(void)
 	glShadeModel(GL_FLAT);
 }
 
-//https://processing.org/examples/flocking.html
 void display(void)
 {
 	glClear(GL_COLOR_BUFFER_BIT);
 	glColor3f(1.0, 1.0, 1.0);
 	glLoadIdentity(); 
 	gluLookAt(0.0, 0.0, 250.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
-
-	glBegin(GL_LINES);
-	glColor3f(0.0f, 1.0f, 0.0f); // x is green
-	glVertex3i(250, 0, 0);
-	glVertex3i(-250, 0, 0);
-	glColor3f(0.0f, 1.0f, 1.0f); // y is blue
-	glVertex3i(0, 250, 0);
-	glVertex3i(0, -250, 0);
-	glEnd();
-	glFlush();
 
 	// Draw Boids
 	for (auto boid : newFlock.Boids) {

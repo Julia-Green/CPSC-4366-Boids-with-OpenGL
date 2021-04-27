@@ -18,10 +18,8 @@ Boid::Boid() {
 	translatePosition.x = x;
 	translatePosition.y = y;
 
-	//Calculates positon for other two verticies adjust me
-	// https://academo.org/demos/rotation-about-point/
-	// https://www.texasgateway.org/resource/61-angle-rotation-and-angular-velocity https://processing.org/examples/flocking.html
-	theta = heading(translatePosition.x, translatePosition.y) - radians(90); // rotate value http://www.opengl-tutorial.org/intermediate-tutorials/tutorial-17-quaternions/#how-do-i-create-a-quaternion-in-c-
+	// Calculates positon for other two verticies adjustments needed
+	theta = heading(translatePosition.x, translatePosition.y) - radians(90); // rotate value 
 	vertPositions.at(0).x = 0 + translatePosition.x;
 	vertPositions.at(0).y = -radius * 2 + translatePosition.y;
 
@@ -58,15 +56,4 @@ void Boid::updateBoidPositions() {
 
 	vertPositions.at(2).x += velocity.x;
 	vertPositions.at(2).y += velocity.y;
-
-	//theta = heading(vertPositions.at(0).x, vertPositions.at(0).y) + radians(90); // rotate value
-
-	//vertPositions.at(0).x = (vertPositions.at(0).x * cos(theta)) - (vertPositions.at(0).y * sin(theta));
-	//vertPositions.at(0).y = (vertPositions.at(0).y * cos(theta)) - (vertPositions.at(0).x * sin(theta));
-
-	//vertPositions.at(1).x = (vertPositions.at(1).x * cos(theta)) - (vertPositions.at(1).y * sin(theta));
-	//vertPositions.at(1).y = (vertPositions.at(1).y * cos(theta)) - (vertPositions.at(1).x * sin(theta));
-
-	//vertPositions.at(2).x = (vertPositions.at(2).x * cos(theta)) - (vertPositions.at(2).y * sin(theta));
-	//vertPositions.at(2).y = (vertPositions.at(2).y * cos(theta)) - (vertPositions.at(2).x * sin(theta));
 }
