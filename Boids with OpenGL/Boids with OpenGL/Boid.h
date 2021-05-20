@@ -7,8 +7,6 @@ class Boid {
 		//Construct the boid
 		Boid();
 		 
-		float radians(float degrees);
-		float heading(float x, float y);
 		void updateBoidPositions();
 
 		float radius = 5.0;

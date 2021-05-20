@@ -24,15 +24,15 @@ void display(void)
 
 	// Draw Boids
 	for (auto boid : newFlock.Boids) {
-		glBegin(GL_TRIANGLES);
-		glColor3f(0.5, 0.5, 0);
-		glTranslatef(boid.translatePosition.x, boid.translatePosition.y, 0.0);
-		glRotatef(boid.theta, 1.0, 0.0, 0.0);
-		glVertex2f(boid.vertPositions.at(0).x, boid.vertPositions.at(0).y);
-		glVertex2f(boid.vertPositions.at(1).x, boid.vertPositions.at(1).y);
-		glVertex2f(boid.vertPositions.at(2).x, boid.vertPositions.at(2).y);
-		glEnd();
-		glFlush();
+		glPushMatrix();
+			glBegin(GL_TRIANGLES);
+			glColor3f(0.5, 0.5, 0);	
+			glVertex2f(boid.vertPositions.at(0).x, boid.vertPositions.at(0).y);
+			glVertex2f(boid.vertPositions.at(1).x, boid.vertPositions.at(1).y);
+			glVertex2f(boid.vertPositions.at(2).x, boid.vertPositions.at(2).y);
+			glEnd();
+			glFlush();
+		glPopMatrix();
 	}
 	
 	// Updates position for each boid in the flock's Boids vector

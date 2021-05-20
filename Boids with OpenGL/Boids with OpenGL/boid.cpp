@@ -19,32 +19,37 @@ Boid::Boid() {
 	translatePosition.y = y;
 
 	// Calculates positon for other two verticies adjustments needed
-	theta = heading(translatePosition.x, translatePosition.y) - radians(90); // rotate value 
-	vertPositions.at(0).x = 0 + translatePosition.x;
-	vertPositions.at(0).y = -radius * 2 + translatePosition.y;
 
-	vertPositions.at(1).x = -radius + translatePosition.x;
-	vertPositions.at(1).y = radius * 2 + translatePosition.y;
+	theta = atan(velocity.x / velocity.y) * 180.0 / 3.14159265359; // rotate value 
 
-	vertPositions.at(2).x = radius + translatePosition.x;
-	vertPositions.at(2).y = radius * 2 + translatePosition.y;
+	vertPositions.at(0).x = 0;
+	vertPositions.at(0).y = 0;
 
-	vertPositions.at(0).x = (vertPositions.at(0).x * cos(theta)) - (vertPositions.at(0).y * sin(theta));
-	vertPositions.at(0).y = (vertPositions.at(0).y * cos(theta)) - (vertPositions.at(0).x * sin(theta));
+	vertPositions.at(1).x = -5;
+	vertPositions.at(1).y = -10;
 
-	vertPositions.at(1).x = (vertPositions.at(1).x * cos(theta)) - (vertPositions.at(1).y * sin(theta));
-	vertPositions.at(1).y = (vertPositions.at(1).y * cos(theta)) - (vertPositions.at(1).x * sin(theta));
+	vertPositions.at(2).x = 5;
+	vertPositions.at(2).y = -10;
 
-	vertPositions.at(2).x = (vertPositions.at(2).x * cos(theta)) - (vertPositions.at(2).y * sin(theta));
-	vertPositions.at(2).y = (vertPositions.at(2).y * cos(theta)) - (vertPositions.at(2).x * sin(theta));
-}
+	float xNew, yNew;
+	xNew = (vertPositions.at(0).x * cos(-theta)) - (vertPositions.at(0).y * sin(-theta));
+	yNew = (vertPositions.at(0).x * sin(-theta)) + (vertPositions.at(0).y * cos(-theta));
 
-float Boid::radians(float degrees) {
-	return (degrees * 3.14159265359) / 180.0;
-}
+	vertPositions.at(0).x = xNew + translatePosition.x;
+	vertPositions.at(0).y = yNew + translatePosition.y;
 
-float Boid::heading(float x, float y) {
-	return atan2(static_cast<float>(velocity.x), static_cast<float>(-velocity.y)) * 180.0 / 3.14159265359;
+	xNew = (vertPositions.at(1).x * cos(-theta)) - (vertPositions.at(1).y * sin(-theta));
+	yNew = (vertPositions.at(1).x * sin(-theta)) + (vertPositions.at(1).y * cos(-theta));
+
+	vertPositions.at(1).x = xNew + translatePosition.x;
+	vertPositions.at(1).y = yNew + translatePosition.y;
+
+	xNew = (vertPositions.at(2).x * cos(-theta)) - (vertPositions.at(2).y * sin(-theta));
+	yNew = (vertPositions.at(2).x * sin(-theta)) + (vertPositions.at(2).y * cos(-theta));
+
+	vertPositions.at(2).x = xNew + translatePosition.x;
+	vertPositions.at(2).y = yNew + translatePosition.y;
+
 }
 
 void Boid::updateBoidPositions() {
